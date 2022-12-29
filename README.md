@@ -39,16 +39,18 @@ IntPtr bgrPtr = Marshal.AllocHGlobal(bgrBuffer.Length);
 
 Marshal.Copy(rgbaBuffer, 0, rgbaPtr, rgbaBuffer.Length); //copy the buffer to pointer
 
-int status = RGBA32ToBGR24(rgbaPtr, bgrPtr, width, height); //int type can be changed to cudaError_t
+int status = NvColorSpace.RGBA32ToBGR24(rgbaPtr, bgrPtr, width, height); //int type can be changed to cudaError_t
 
 if (status == 0) {
     Marshal.Copy(bgrPtr, bgrBuffer, 0, bgrBuffer.Length); //copy the pointer's data to buffer
-    Marshal.FreeHGlobal(rgbaPtr);
-    Marshal.FreeHGlobal(bgrPtr);
     
     //now you can use bgrBuffer!
+    
 }
 else {
     Console.WriteLine("Error occured! More informations at the file (BetterNvLog.log) or googling status code. ex) cuda runtime error 9");
 }
+
+Marshal.FreeHGlobal(rgbaPtr);
+Marshal.FreeHGlobal(bgrPtr);
 ```
