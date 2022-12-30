@@ -4,6 +4,7 @@ Converts the image's color using NVIDIA CUDA
 ## Supported
 - RGBA to BGRA
 - RGBA to BGR
+- BGRA to YUV
 
 [Want other method?](https://github.com/MineEric64/NvColorSpace/issues/new)
 
