@@ -26,4 +26,5 @@ union RGBA32 {
 };
 
 extern "C" NV_DECLSPEC cudaError_t RGBA32ToBGRA32(const uint8_t * rgba, uint8_t * bgra, const int width, const int height);
-extern "C" NV_DECLSPEC cudaError_t RGBA32ToBGR24(uint8_t * rgba, uint8_t * bgr, int width, int height);
+extern "C" NV_DECLSPEC cudaError_t RGBA32ToBGR24(const uint8_t * rgba, uint8_t * bgr, const int width, const int height);
+extern "C" NV_DECLSPEC cudaError_t BGRA32ToYUV420(const uint8_t * bgra, uint8_t * yuv420, const int width, const int height);
